@@ -109,7 +109,7 @@ class AccountInfo extends Component {
     }
 
     //var url = 'http://localhost:8000/api/post/anon/'
-    var url = 'http://backend.jporter.io/api/post/anon/'
+    var url = 'https://backend.jporter.io/api/post/anon/'
 
     fetch(url, {
       method: 'POST', // or 'PUT'
@@ -187,7 +187,7 @@ class AccountInfo extends Component {
   }
 
   //var url = 'http://localhost:8000/api/post/'
-  var url = 'http://backend.jporter.io/api/post/'
+  var url = 'https://backend.jporter.io/api/post/'
 
   fetch(url, {
     method: 'POST', // or 'PUT'

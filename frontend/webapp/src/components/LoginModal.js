@@ -187,7 +187,7 @@ class LoginModal extends Component {
       }
 
       //var url = 'http://localhost:8000/api/post/'
-      var url = 'http://backend.jporter.io/api/post/'
+      var url = 'https://backend.jporter.io/api/post/'
 
       fetch(url, {
         method: 'POST', // or 'PUT'
@@ -256,7 +256,7 @@ class LoginModal extends Component {
     }
 
     //var url = 'http://localhost:8000/api/auth/'
-    var url = 'http://backend.jporter.io/api/auth/'
+    var url = 'https://backend.jporter.io/api/auth/'
 
     fetch(url, {
       method: 'POST', // or 'PUT'
