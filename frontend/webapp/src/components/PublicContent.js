@@ -100,22 +100,6 @@ class PublicContent extends Component {
     }
   }
 
-  renderName() {
-    if (isBrowser) {
-      return(
-        <Typography variant="h1" align="center">
-          jonathan_porter
-        </Typography>
-      );
-    } else {
-      return(
-        <Typography variant="h1" align="center">
-          jonathan porter
-        </Typography>
-      );
-    }
-  }
-
 
   render() {
     const { classes } = this.props;
@@ -132,13 +116,15 @@ class PublicContent extends Component {
             </Grid>
             <Grid item container xs={12} spacing={1}>
               <Grid item xs={12}>
-                {this.renderName()}
+                <Typography variant="h1" align="center" style={{ color: '#333' }}>
+                  jonathan porter
+                </Typography>
                 <Box m={1} p={1} />
                 <Typography variant="h5" align="center">
                   {this.renderWordcloud()}
                 </Typography>
                 <Box m={1} p={1} />
-                <Typography variant="h4" align="center">
+                <Typography variant="h4" align="center" style={{ color: '#333' }}>
                   <u>projects and experience</u>
                 </Typography>
               </Grid>
@@ -150,14 +136,15 @@ class PublicContent extends Component {
                     className="vertical-timeline-element--work"
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                    style={{ color: '#333' }}
                     date="october 2019 - present"
                     iconStyle={{ background: 'rgb(97,219,251)', color: '#fff' }}
                     icon={<FaReact />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>react/python client portal app</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>tailored client experience app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">independent - atlanta, ga</h4>
                     <p>
-                      developed customer portal to more effectively communicate project information with my clients
+                      created custom communication and information sharing app that provides clients with real-time project data, easily visualized and always accessible
                     </p>
                     <br />
                     <Chip label="python" />
@@ -170,21 +157,22 @@ class PublicContent extends Component {
                     &nbsp;
                     <Chip label="material-ui" />
                     &nbsp;
-                    <Chip label="custom server" />
+                    <Chip label="custom ubuntu server" />
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                    style={{ color: '#333' }}
                     date="june  2019 - present"
                     iconStyle={{ background: 'rgb(97,219,251)', color: '#fff' }}
                     icon={<FaReact />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>react/python data visualization app</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>data visualization app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
                     <p>
-                      architected and developed cloud-native tool to analyze and visualize big data
+                      architected and prototyped a cloud-native tool designed to analyze and understand large datasets
                     </p>
                     <br />
                     <Chip label="python" />
@@ -206,14 +194,15 @@ class PublicContent extends Component {
                     className="vertical-timeline-element--work"
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                    style={{ color: '#333' }}
                     date="august 2018 - june 2019"
                     iconStyle={{ background: 'rgb(254,202,58)', color: '#fff' }}
                     icon={<FaPython />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>python/django file generation app</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>data creation tool</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
                     <p>
-                      designed and coded cloud-based app to automate the creation of test data, iteratively working with client to meet dynamic requirements
+                      designed and coded app to automate the creation of test data, iteratively working with client to meet dynamic requirements
                     </p>
                     <br />
                     <Chip label="python" />
@@ -229,49 +218,33 @@ class PublicContent extends Component {
                     className="vertical-timeline-element--work"
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                    date="august 2018 - july 2019"
-                    iconStyle={{ background: 'rgb(255,0,0)', color: '#fff' }}
-                    icon={<FaDatabase />}
-
-                  >
-                    <h3 className="vertical-timeline-element-title"><u>quality systems sql development</u></h3>
-                    <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
-                    <p>
-                      helped client design quality system with multiple highly complex custom sql reports
-                    </p>
-                    <br />
-                    <Chip label="oracle pl/sql" />
-                  </VerticalTimelineElement>
-
-                  <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                    //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                    date="july 2018 - april 2019"
+                    style={{ color: '#333' }}
+                    date="july 2018 - ocotober 2019"
                     iconStyle={{ background: 'rgb(255,0,0)', color: '#fff' }}
                     icon={<FaDatabase />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>custom oracle pl/sql development</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>custom business intelligence development</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
                     <p>
-                      formulated and wrote custom oracle procedural sql to achieve client's desired functionality
+                      understood multiple complex legacy systems to write extensive queries as well as pl/sql triggers and procedures to make data accessible to business users
                     </p>
                     <br />
-                    <Chip label="pl/sql triggers" />
+                    <Chip label="oracle pl/sql triggers" />
                     &nbsp;
-                    <Chip label="pl/sql stored procedures" />
+                    <Chip label="oracle pl/sql stored procedures" />
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="april 2018 - september 2018"
                     iconStyle={{ background: 'rgb(10,27,101)', color: '#fff' }}
                     icon={<IoMdMedical />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>medical device logistics tracking app</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>medical device supply chain validation app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">independent - atlanta, ga</h4>
                     <p>
-                      full functional and techincal design of new blockchain tool for a client in the medial device industry
+                      full functional and techincal design of new logistics management tool utilizing blockchain and machine learning for a client in the medical device industry
                     </p>
                     <br />
                     <Chip label="user stories" />
@@ -285,14 +258,15 @@ class PublicContent extends Component {
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="march 2018 - may 2018"
                     iconStyle={{ background: 'rgb(254,202,58)', color: '#fff' }}
                     icon={<FaPython />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>time tracking and invoicing slack app</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>time and billing management slack app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">independent - atlanta, ga</h4>
                     <p>
-                      built a slack app to more easily track hours spent and automatically invoice clients
+                      built an app that integrates with Slack to more easily capture billable hours and then automatically generate and send invoices to clients
                     </p>
                     <br />
                     <Chip label="python" />
@@ -306,44 +280,51 @@ class PublicContent extends Component {
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="december 2017 - march 2018"
                     iconStyle={{ background: 'rgb(49,97,146)', color: '#fff' }}
                     icon={<FaDatabase />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>pharmaceutical data warehouse development</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>pharmaceutical data warehouse design</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">AnswerRocket - atlanta, ga</h4>
                     <p>
-                      designed full data model for highly complex data warehouse of a pharmaceutical client
+                      iteratively worked with client to understand business requirements of data model to then design optimal data warehouse for new reporting layer integration
                     </p>
                     <br />
-                    <Chip label="kimball dimensional modeling techniques" />
+                    <Chip label="kimball dimensional modeling" />
+                    &nbsp;
+                    <Chip label="postgresql" />
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="september 2017 - march 2018"
                     iconStyle={{ background: 'rgb(49,97,146)', color: '#fff' }}
                     icon={<FaDatabase />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>sales engineering data warehouse design</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>prototype data warehouse development</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">AnswerRocket - atlanta, ga</h4>
                     <p>
-                      developed over twenty data warehouses for proof of concept deployments to assist sales team
+                      created over twenty data warehouses for proof of concept deployments in order to demostrate functionality of new business intelligence tool to potential customers
                     </p>
                     <br />
-                    <Chip label="kimball dimensional modeling techniques" />
+                    <Chip label="kimball dimensional modeling" />
+                    &nbsp;
+                    <Chip label="postgresql" />
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="september 2017 - december 2018"
+                    style={{ color: '#333' }}
+                    date="september 2017 - december 2017"
                     iconStyle={{ background: 'rgb(27,115,186)', color: '#fff' }}
                     icon={<FaCss3 />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>whitelabeling rearchitecting</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>rearchitecting of whitelabeling process</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">AnswerRocket - atlanta, ga</h4>
                     <p>
-                      refactored code and internal process to reduce whitelabeling development time from three days per deployment to less than one hour
+                      refactored code and internal strategy to reduce whitelabeling development time from three days per deployment to less than one hour
                     </p>
                     <br />
                     <Chip label="python" />
@@ -353,6 +334,7 @@ class PublicContent extends Component {
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="june 2015 - august 2017"
                     iconStyle={{ background: 'rgb(7,29,73)', color: '#fff' }}
                     icon={<MdWork />}
@@ -360,28 +342,27 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>wmos consultant</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">Manhattan Associates - atlanta, ga</h4>
                     <p>
-                      functional lead on two long-term wms projects, designing over fifteen different software modifications between the two
-                    </p>
-                    <p>
-                      gathered business requirements from clients and designed technical logic for development team
+                      junior design lead on two long-term wms projects, gathering business requirements and designing the logic for over fifteen system enhancements
                     </p>
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="august 2011 - august 2013"
                     iconStyle={{ background: 'rgb(238,28,37)', color: '#fff' }}
                     icon={<MdWork />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>industrial engineering co-op</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>industrial engineering co-op (four semesters)</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">Robert Bosch, LLC - charleston, sc</h4>
                     <p>
-                      worked on continuous improvement projects in a large scale automotive manufacturing setting
+                      completed mulitiple continuous improvement projects in a large scale automotive manufacturing plant
                     </p>
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--education"
+                    style={{ color: '#333' }}
                     date="august 2010 - may 2015"
                     iconStyle={{ background: 'rgb(51,51,51)', color: '#fff' }}
                     icon={<MdSchool />}
@@ -389,15 +370,13 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>bachelor of science in industrial and systems engineering</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">Georgia Institute of Technology - atlanta, ga</h4>
                     <p>
-                      minor in engineering & business through the denning technology and management program
-                    </p>
-                    <p>
-                      graduated with highest honors
+                      graduated with highest honors and a minor in engineering & business through the Denning Technology & Management Program
                     </p>
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    style={{ color: '#333' }}
                     date="june 2007 - may 2015"
                     iconStyle={{ background: 'rgb(109,27,123)', color: '#fff' }}
                     icon={<MdWork />}
@@ -405,15 +384,13 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>entrepreneur (part-time)</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">Premises, Inc. - tucker, ga</h4>
                     <p>
-                      collaboratively understood business needs from local real estate agents
-                    </p>
-                    <p>
-                      created promotional websites, marketing flyers, and information brochures to increase buyer traffic
+                      collaboratively understood business needs from local real estate agents to create promotional websites, marketing collateral, and informational brochures
                     </p>
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
                     className="vertical-timeline-element--education"
+                    style={{ color: '#333' }}
                     date="august 2006 - may 2010"
                     iconStyle={{ background: 'rgb(51,51,51)', color: '#fff' }}
                     icon={<MdSchool />}
@@ -423,6 +400,7 @@ class PublicContent extends Component {
                   </VerticalTimelineElement>
                   <VerticalTimelineElement
                     className="vertical-timeline-element--education"
+                    style={{ color: '#333' }}
                     date="august 2004 - may 2006"
                     iconStyle={{ background: 'rgb(51,51,51)', color: '#fff' }}
                     icon={<MdSchool />}
@@ -432,6 +410,7 @@ class PublicContent extends Component {
                   </VerticalTimelineElement>
                   <VerticalTimelineElement
                     className="vertical-timeline-element--education"
+                    style={{ color: '#333' }}
                     date="august 1995 - may 2004"
                     iconStyle={{ background: 'rgb(51,51,51)', color: '#fff' }}
                     icon={<MdSchool />}
@@ -442,6 +421,7 @@ class PublicContent extends Component {
 
                   <VerticalTimelineElement
                     iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+                    style={{ color: '#333' }}
                     icon={<MdFace />}
                     date="hello world: july 1992"
                   />
@@ -455,7 +435,7 @@ class PublicContent extends Component {
             </Grid>
             <Grid item container xs={12} spacing={1} align="center" justify="center" direction="column">
               <Grid item xs={12}>
-                <Typography variant="h4" align="center">
+                <Typography variant="h4" align="center" style={{ color: '#333' }}>
                   <u>skills</u>
                 </Typography>
                 <Box m={1} p={1} />
@@ -589,7 +569,7 @@ class PublicContent extends Component {
             </Grid>
             <Grid item container xs={12} spacing={1} align="center" justify="center" direction="column">
               <Grid item xs={12}>
-                <Typography variant="h4" align="center">
+                <Typography variant="h4" align="center" style={{ color: '#333' }}>
                   <u>interests</u>
                 </Typography>
                 <Box m={1} p={1} />
