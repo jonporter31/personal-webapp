@@ -1,2 +1,2 @@
-# personal-webapp
-Personal public facing website along with private client portal
+# tailored client experience app
+Personal public facing website along with private client communication and information sharing app
