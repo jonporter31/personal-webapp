@@ -57,12 +57,18 @@ def check_trans_per_ip():
 	utc_tz = pytz.timezone("UTC")
 	eastern_tz = pytz.timezone("US/Eastern")
 	twelve_hours_ago_in_utc = eastern_tz.localize(datetime.now() - timedelta(hours=12)).astimezone(utc_tz)
-	all_trans = TranLog.objects.all().filter(created_dttm__gt=twelve_hours_ago_in_utc,direction='request').only('client_ip').annotate(cnt_tran=Count('tran_log_id'),max_dt=Max('created_dttm'))
+	all_trans = TranLog.objects.all().filter(created_dttm__gt=twelve_hours_ago_in_utc,direction='request').only('client_ip','city','region','country','lat','lon').annotate(cnt_tran=Count('tran_log_id'),max_dt=Max('created_dttm'))
 
 	results_dict = {}
 	for tran in all_trans:
 		if tran.client_ip not in results_dict.keys():
-			results_dict[tran.client_ip] = {'cnt_tran':tran.cnt_tran, 'max_dt':tran.max_dt}
+			if tran.city is not None:
+				dsp_locn = tran.city+', '+tran.region+', '+tran.country
+				dsp_link = 'https://www.google.com/maps/search/?api=1&query='+str(tran.lat)+','+str(tran.lon)
+			else:
+				dsp_locn = 'no location infromation'
+				dsp_link = ''
+			results_dict[tran.client_ip] = {'cnt_tran':tran.cnt_tran, 'max_dt':tran.max_dt, 'locn':dsp_locn, 'maps_link':dsp_link}
 		else:
 			results_dict[tran.client_ip]['cnt_tran'] += tran.cnt_tran
 			results_dict[tran.client_ip]['max_dt'] = tran.max_dt
@@ -70,11 +76,12 @@ def check_trans_per_ip():
 	display_list = [':information_source: _transaction log by ip address:_\n\n']
 	for ip_add in results_dict.keys():
 		display_list += [
-			str(ip_add)+' - '
+			str(ip_add)+' ('+results_dict[ip_add]['locn']+') - '
 			+str(results_dict[ip_add]['cnt_tran'])+' transactions in the last 12 hours _[last accessed '
-			+results_dict[ip_add]['max_dt'].strftime('%b %d, %Y - %H:%M %p')+' UTC'
-			+']_\n\n'
+			+results_dict[ip_add]['max_dt'].astimezone(eastern_tz).strftime('%a - %b %d - %-I:%M %p')+' EST'
+			+']_ '+results_dict[ip_add]['maps_link']+'\n\n'
 		]
+		logger.debug('scheduled_jobs - check_trans_per_ip : dsp_locn = '+results_dict[ip_add]['locn'])
 
 	if len(display_list) <= 1:
 		logger.debug('scheduled_jobs - check_trans_per_ip : no transactions in last 12 hours')

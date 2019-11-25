@@ -11,6 +11,12 @@ class TranLog(models.Model):
 	tran_id = models.IntegerField()
 	client_ip = models.CharField(max_length=50,null=True)
 	data = models.CharField(max_length=10000,null=True)
+	city = models.CharField(max_length=200,null=True)
+	region = models.CharField(max_length=200,null=True)
+	country = models.CharField(max_length=200,null=True)
+	threat_level = models.CharField(max_length=10,default='low')
+	lat = models.CharField(max_length=50,null=True)
+	lon = models.CharField(max_length=50,null=True)
 
 	created_dttm = models.DateTimeField(auto_now_add=True)
 	modified_dttm = models.DateTimeField(auto_now=True,null=True)
