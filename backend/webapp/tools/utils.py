@@ -2,6 +2,8 @@ import logging
 logger = logging.getLogger('webapp_main')
 
 import json
+from api.models import TranLog
+from ipstack import GeoLookup
 
 def separate_inputs(inputs_dict):
 	action = None
@@ -33,6 +35,46 @@ def convert_empty_string_and_none(string):
 		return None
 	else:
 		return string
+
+def update_locn_on_trans(tran_log_id, ip):
+	geo_lookup = GeoLookup("c695ff91f7014d2fefc5e45cf0593491")
+	city = None
+	region = None
+	country = None
+	lat = None
+	lon = None
+	locn_error = False
+	try:
+		location = geo_lookup.get_location(ip)
+		if location is not None:
+			city = location['city']
+			region = location['region_code']
+			country = location['country_code']
+			lat = location['latitude']
+			lon = location['longitude']
+
+	except Exception as e:
+		locn_error = str(e)
+				
+
+	try:
+		upd_tran = TranLog.objects.get(pk=tran_log_id)
+	except TranLog.DoesNotExist:
+		upd_tran = False
+
+	if upd_tran:
+		if city is not None and not locn_error:
+			upd_tran.city=city
+			upd_tran.country=country
+			upd_tran.region=region
+			upd_tran.lat=lat
+			upd_tran.lon=lon
+			upd_tran.save()
+			logger.debug('update_locn_on_trans : tran_log_id = '+str(tran_log_id)+' / location information updated - city = '+str(city)+', region = '+str(region)+', country = '+str(country)+', lat = '+str(lat)+', lon = '+str(lon))
+		else:
+			logger.debug('update_locn_on_trans : tran_log_id = '+str(tran_log_id)+' / error getting location data from ip - '+locn_error)
+	else:
+		logger.debug('update_locn_on_trans : tran_log_id = '+str(tran_log_id)+' / no tran log found for provided tran_log_id')
 
 def build_json(msg_reason,error_code='0',error_msg='--none--',return_string=True,**kwargs):
 	#this function takes in the various pieces of the payload to returned in the api json

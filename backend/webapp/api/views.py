@@ -35,7 +35,9 @@ from .slack_helper import slack_helper
 from tools.utils import build_json
 from .models import TranLog, NextUp
 from ipware import get_client_ip
-from ipstack import GeoLookup
+#from ipstack import GeoLookup
+import _thread
+from tools.utils import update_locn_on_trans
 
 
 SLACK_VERIFICATION_TOKEN = getattr(settings, 'SLACK_VERIFICATION_TOKEN', None)
@@ -55,50 +57,21 @@ class API(APIView):
 		tran_id_next_up.next_up_value = new_tran_id + tran_id_next_up.increment
 		tran_id_next_up.save()
 
-		ip, is_routable = get_client_ip(request)
-
-		geo_lookup = GeoLookup("c695ff91f7014d2fefc5e45cf0593491")
-		city = None
-		region = None
-		country = None
-		lat = None
-		lon = None
-		locn_error = False
-		try:
-			location = geo_lookup.get_location(ip)
-			if location is not None:
-				city = location['city']
-				region = location['region_code']
-				country = location['country_code']
-				lat = location['latitude']
-				lon = location['longitude']
-
-		except Exception as e:
-			locn_error = str(e)
-					
+		ip, is_routable = get_client_ip(request)		
 
 		new_tran = TranLog(
 			direction='request',
 			tran_id=new_tran_id,
 			client_ip=str(ip),
-			data=str(request.data),
-			city=city,
-			country=country,
-			region=region,
-			lat=lat,
-			lon=lon
+			data=str(request.data)
 		)
 		new_tran.save()
 
 		self.message_data = request.data
 		logger.debug('\n\nSTART OF NEW MESSAGE PROCESSING\n\n')
 		logger.debug('post : tran_id = '+str(new_tran_id)+' / tran_log_id = '+str(new_tran.tran_log_id)+' / inbound request data '+str(self.message_data))		
-		if locn_error:
-			logger.debug('post : tran_id = '+str(new_tran_id)+' / tran_log_id = '+str(new_tran.tran_log_id)+' / error getting location data from ip - '+locn_error)
-		else:
-			logger.debug('post : tran_id = '+str(new_tran_id)+' / tran_log_id = '+str(new_tran.tran_log_id)+' / location information - city = '+str(city)+', region = '+str(region)+', country = '+str(country)+', lat = '+str(lat)+', lon = '+str(lon))
-
-
+		
+		_thread.start_new_thread( update_locn_on_trans, (new_tran.tran_log_id, ip, ) )
 
 		output_json = None
 
@@ -161,48 +134,21 @@ class ANON_API(APIView):
 		tran_id_next_up.next_up_value = new_tran_id + tran_id_next_up.increment
 		tran_id_next_up.save()
 
-		ip, is_routable = get_client_ip(request)
-
-		geo_lookup = GeoLookup("c695ff91f7014d2fefc5e45cf0593491")
-		city = None
-		region = None
-		country = None
-		lat = None
-		lon = None
-		locn_error = False
-		try:
-			location = geo_lookup.get_location(ip)
-			if location is not None:
-				city = location['city']
-				region = location['region_code']
-				country = location['country_code']
-				lat = location['latitude']
-				lon = location['longitude']
-
-		except Exception as e:
-			locn_error = str(e)
-					
+		ip, is_routable = get_client_ip(request)				
 
 		new_tran = TranLog(
 			direction='request',
 			tran_id=new_tran_id,
 			client_ip=str(ip),
-			data=str(request.data),
-			city=city,
-			country=country,
-			region=region,
-			lat=lat,
-			lon=lon
+			data=str(request.data)
 		)
 		new_tran.save()
 
 		self.message_data = request.data
 		logger.debug('\n\nSTART OF NEW MESSAGE PROCESSING\n\n')
 		logger.debug('post : tran_id = '+str(new_tran_id)+' / tran_log_id = '+str(new_tran.tran_log_id)+' / inbound request data '+str(self.message_data))		
-		if locn_error:
-			logger.debug('post : tran_id = '+str(new_tran_id)+' / tran_log_id = '+str(new_tran.tran_log_id)+' / error getting location data from ip - '+locn_error)
-		else:
-			logger.debug('post : tran_id = '+str(new_tran_id)+' / tran_log_id = '+str(new_tran.tran_log_id)+' / location information - city = '+str(city)+', region = '+str(region)+', country = '+str(country)+', lat = '+str(lat)+', lon = '+str(lon))
+		
+		_thread.start_new_thread( update_locn_on_trans, (new_tran.tran_log_id, ip, ) )
 
 		output_json = None
 

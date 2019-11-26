@@ -66,9 +66,16 @@ def check_trans_per_ip():
 				dsp_locn = tran.city+', '+tran.region+', '+tran.country
 				dsp_link = 'https://www.google.com/maps/search/?api=1&query='+str(tran.lat)+','+str(tran.lon)
 			else:
-				dsp_locn = 'no location infromation'
+				dsp_locn = 'no location information'
 				dsp_link = ''
-			results_dict[tran.client_ip] = {'cnt_tran':tran.cnt_tran, 'max_dt':tran.max_dt, 'locn':dsp_locn, 'maps_link':dsp_link}
+			cnt_total = TranLog.objects.all().filter(client_ip=tran.client_ip).count()
+			if cnt_total == 0:
+				dsp_cnt_total = 'no prior transactions'
+			elif cnt_total == 1:
+				dsp_cnt_total = '1 total transaction'
+			else:
+				dsp_cnt_total = str(cnt_total)+' total transactions'
+			results_dict[tran.client_ip] = {'cnt_tran':tran.cnt_tran, 'max_dt':tran.max_dt, 'locn':dsp_locn, 'maps_link':dsp_link, 'cnt_total': dsp_cnt_total}
 		else:
 			results_dict[tran.client_ip]['cnt_tran'] += tran.cnt_tran
 			results_dict[tran.client_ip]['max_dt'] = tran.max_dt
@@ -77,7 +84,7 @@ def check_trans_per_ip():
 	for ip_add in results_dict.keys():
 		display_list += [
 			str(ip_add)+' ('+results_dict[ip_add]['locn']+') - '
-			+str(results_dict[ip_add]['cnt_tran'])+' transactions in the last 12 hours _[last accessed '
+			+str(results_dict[ip_add]['cnt_tran'])+' transactions in the last 12 hours | '+str(results_dict[ip_add]['cnt_total'])+' _[last accessed '
 			+results_dict[ip_add]['max_dt'].astimezone(eastern_tz).strftime('%a - %b %d - %-I:%M %p')+' EST'
 			+']_ '+results_dict[ip_add]['maps_link']+'\n\n'
 		]
