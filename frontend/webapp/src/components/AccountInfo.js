@@ -76,7 +76,7 @@ class AccountInfo extends Component {
 
   constructor(props) {
     super(props);
-    this.getAnimal = this.getAnimal.bind(this)
+    //this.getAnimal = this.getAnimal.bind(this)
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this)
     this.renderLoginButton = this.renderLoginButton.bind(this)
@@ -93,7 +93,7 @@ class AccountInfo extends Component {
 
 
   componentDidMount() {
-    this.props.setAccountName('anonymous '+this.getAnimal())
+    //this.props.setAccountName('anonymous '+this.getAnimal())
 
     var data = {
       source: 'react',
@@ -132,14 +132,14 @@ class AccountInfo extends Component {
     }
   }
   
-  getAnimal() {
+  /*getAnimal() {
     var animalArray = ['corgi','anteater','capybara','chinchilla','chupacabra','dingo','dinosaur','gopher','hedgehog','iguana','jackal','kangaroo','koala','kraken','lemur','liger','llama','manatee','mink','narwhal','orangutan','panda','penguin','platypus','pumpkin','python','raccoon','shrew','squirrel','turtle','walrus','wombat'];
 
     var randomAnimal = animalArray[Math.floor(Math.random() * animalArray.length)];
 
     return (randomAnimal);
 
-  }
+  }*/
 
   handleLoginClick() {
     this.props.contactModalHide()
@@ -235,7 +235,7 @@ class AccountInfo extends Component {
     if (isMobile) {
       var buttonText = "Hire"
     } else {
-      var buttonText = "Want to hire me? Click here"
+      var buttonText = "Hire Me"
     }
     return (
       <Button style={{ backgroundColor: '#ffc107' }} variant="contained" text="Contact" onClick={this.handleContactClick}>{buttonText}</Button>
@@ -270,11 +270,19 @@ class AccountInfo extends Component {
     const { classes } = this.props;
     
     if (isBrowser) {
-      return (
-        <Typography variant="h6" className={classes.title} style={{ color: '#ffc107' }}>
-          welcome, {this.props.Account.name}
-        </Typography>
-      );
+      if (this.props.Account.anon) {
+        return (
+          <Typography variant="h6" className={classes.title} style={{ color: '#ffc107' }}>
+            welcome
+          </Typography>
+        );
+      } else {
+        return (
+          <Typography variant="h6" className={classes.title} style={{ color: '#ffc107' }}>
+            welcome, {this.props.Account.name}
+          </Typography>
+        );
+      }
     } else {
       return(<span></span>);
     }

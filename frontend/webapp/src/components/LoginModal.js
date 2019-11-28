@@ -104,7 +104,7 @@ class LoginModal extends Component {
     this.processLoginResponse = this.processLoginResponse.bind(this)
     this.processNameResponse = this.processNameResponse.bind(this)
     //this.doInitialLoad = this.doInitialLoad.bind(this)
-    this.getAnimal = this.getAnimal.bind(this)
+    //this.getAnimal = this.getAnimal.bind(this)
     this.keyPress = this.keyPress.bind(this)
     this.state = {
       userValue: '',
@@ -132,14 +132,14 @@ class LoginModal extends Component {
     }
   }
 
-  getAnimal() {
+  /*getAnimal() {
     var animalArray = ['corgi','anteater','capybara','chinchilla','chupacabra','dingo','dinosaur','gopher','hedgehog','iguana','jackal','kangaroo','koala','kraken','lemur','liger','llama','manatee','mink','narwhal','orangutan','panda','penguin','platypus','pumpkin','python','raccoon','shrew','squirrel','turtle','walrus','wombat'];
 
     var randomAnimal = animalArray[Math.floor(Math.random() * animalArray.length)];
 
     return (randomAnimal);
 
-  }
+  }*/
 
 /*  doInitialLoad(response) {
     if (response.error_code == '0') {
