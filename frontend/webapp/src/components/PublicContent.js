@@ -219,7 +219,7 @@ class PublicContent extends Component {
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                     style={{ color: '#333' }}
-                    date="july 2018 - ocotober 2019"
+                    date="july 2018 - october 2019"
                     iconStyle={{ background: 'rgb(255,0,0)', color: '#fff' }}
                     icon={<FaDatabase />}
                   >
@@ -244,7 +244,7 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>medical device supply chain validation app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">independent - atlanta, ga</h4>
                     <p>
-                      full functional and techincal design of new logistics management tool utilizing blockchain and machine learning for a client in the medical device industry
+                      full functional and technical design of new logistics management tool utilizing blockchain and machine learning for a client in the medical device industry
                     </p>
                     <br />
                     <Chip label="user stories" />
@@ -306,7 +306,7 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>prototype data warehouse development</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">AnswerRocket - atlanta, ga</h4>
                     <p>
-                      created over twenty data warehouses for proof of concept deployments in order to demostrate functionality of new business intelligence tool to potential customers
+                      created over twenty data warehouses for proof of concept deployments in order to demonstrate functionality of new business intelligence tool to potential customers
                     </p>
                     <br />
                     <Chip label="kimball dimensional modeling" />
@@ -356,7 +356,7 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>industrial engineering co-op (four semesters)</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">Robert Bosch, LLC - charleston, sc</h4>
                     <p>
-                      completed mulitiple continuous improvement projects in a large scale automotive manufacturing plant
+                      completed multiple continuous improvement projects in a large scale automotive manufacturing plant
                     </p>
                   </VerticalTimelineElement>
 
