@@ -137,14 +137,14 @@ class PublicContent extends Component {
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                     style={{ color: '#333' }}
-                    date="october 2019 - present"
+                    date="december 2019 - present"
                     iconStyle={{ background: 'rgb(97,219,251)', color: '#fff' }}
                     icon={<FaReact />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>tailored client experience app</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>small business technology consulting</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">independent - atlanta, ga</h4>
                     <p>
-                      created custom communication and information sharing app that provides clients with real-time project data, easily visualized and always accessible
+                      without changing existing systems, introduced technology solutions to save small business owners’ time and reduce risk by automating business processes
                     </p>
                     <br />
                     <Chip label="python" />
@@ -157,7 +157,9 @@ class PublicContent extends Component {
                     &nbsp;
                     <Chip label="material-ui" />
                     &nbsp;
-                    <Chip label="custom ubuntu server" />
+                    <Chip label="power bi" />
+                    &nbsp;
+                    <Chip label="gcp" />
                   </VerticalTimelineElement>
 
                   <VerticalTimelineElement
@@ -165,14 +167,14 @@ class PublicContent extends Component {
                     //contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     //contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                     style={{ color: '#333' }}
-                    date="june  2019 - present"
+                    date="june  2019 - december 2019"
                     iconStyle={{ background: 'rgb(97,219,251)', color: '#fff' }}
                     icon={<FaReact />}
                   >
                     <h3 className="vertical-timeline-element-title"><u>data visualization app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
                     <p>
-                      architected and prototyped a cloud-native tool designed to analyze and understand large datasets
+                      architected and prototyped a cloud-native tool designed to analyze and understand large datasets, then visualize information for business users
                     </p>
                     <br />
                     <Chip label="python" />
@@ -199,10 +201,10 @@ class PublicContent extends Component {
                     iconStyle={{ background: 'rgb(254,202,58)', color: '#fff' }}
                     icon={<FaPython />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>data creation tool</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>test data creation tool</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
                     <p>
-                      designed and coded app to automate the creation of test data, iteratively working with client to meet dynamic requirements
+                      designed and built app to automate the creation of test data, iteratively working with client to meet dynamic requirements without changing existing processes
                     </p>
                     <br />
                     <Chip label="python" />
@@ -223,10 +225,10 @@ class PublicContent extends Component {
                     iconStyle={{ background: 'rgb(255,0,0)', color: '#fff' }}
                     icon={<FaDatabase />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>custom business intelligence development</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>business intelligence custom development</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">SCApath - atlanta, ga</h4>
                     <p>
-                      understood multiple complex legacy systems to write extensive queries as well as pl/sql triggers and procedures to make data accessible to business users
+                      understood multiple complex legacy systems to make data accessible to business users by writing extensive queries as well as pl/sql triggers and procedures
                     </p>
                     <br />
                     <Chip label="oracle pl/sql triggers" />
@@ -244,7 +246,7 @@ class PublicContent extends Component {
                     <h3 className="vertical-timeline-element-title"><u>medical device supply chain validation app</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">independent - atlanta, ga</h4>
                     <p>
-                      full functional and technical design of new logistics management tool utilizing blockchain and machine learning for a client in the medical device industry
+                      completed full functional and technical design of new logistics management tool utilizing blockchain and machine learning for a client in the medical device industry
                     </p>
                     <br />
                     <Chip label="user stories" />
@@ -303,7 +305,7 @@ class PublicContent extends Component {
                     iconStyle={{ background: 'rgb(49,97,146)', color: '#fff' }}
                     icon={<FaDatabase />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>prototype data warehouse development</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>poc data warehouse development</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">AnswerRocket - atlanta, ga</h4>
                     <p>
                       created over twenty data warehouses for proof of concept deployments in order to demonstrate functionality of new business intelligence tool to potential customers
@@ -321,7 +323,7 @@ class PublicContent extends Component {
                     iconStyle={{ background: 'rgb(27,115,186)', color: '#fff' }}
                     icon={<FaCss3 />}
                   >
-                    <h3 className="vertical-timeline-element-title"><u>rearchitecting of whitelabeling process</u></h3>
+                    <h3 className="vertical-timeline-element-title"><u>rearchitecting of whitelabeling</u></h3>
                     <h4 className="vertical-timeline-element-subtitle">AnswerRocket - atlanta, ga</h4>
                     <p>
                       refactored code and internal strategy to reduce whitelabeling development time from three days per deployment to less than one hour
